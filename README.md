@@ -3,7 +3,7 @@ Started April 7, 2022
 
 Logic Map:
 
-    Series of Prompts for Password Criteria
+   Series of Prompts for Password Criteria
         a. password length 8-128 (inclusive) characters
         b. Confirm if includes CHAR TYPES: lowercase, uppercase, numeric, and/or special characters
             i. could use an object
@@ -11,8 +11,7 @@ Logic Map:
         c. input validation for each prompt and at least one char type should be selected 
         d. after prompts answer > password generates > in an alert or written to the page
 
-Discontinued. Easier to just declare string values and assign variables
-<!-- Object Sketch:
+Object Sketch:
 
 let criteria = {
     letters:,
@@ -22,7 +21,7 @@ let criteria = {
 
 letters is initially all lowercase and use .toUpperCase and set it to variable lettersCaps
 
-i could turn all keys to variables for readability -->
+i could turn all keys to variables for readability.
 
 essentially all a giant if statement function that 
     1. window.prompt(""); user inputs a value 8-128. checks if number is between 8-128.
