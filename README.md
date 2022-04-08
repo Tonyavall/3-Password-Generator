@@ -1,24 +1,35 @@
 Tony Vallescas
-Started April, 4, 2022
-
-Acceptance Critera:
-
-    GIVEN I need a new, secure password
-    WHEN I click the button to generate a password
-    THEN I am presented with a series of prompts for password criteria
-    WHEN prompted for password criteria
-    THEN I select which criteria to include in the password
-    WHEN prompted for the length of the password
-    THEN I choose a length of at least 8 characters and no more than 128 characters
-    WHEN asked for character types to include in the password
-    THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-    WHEN I answer each prompt
-    THEN my input should be validated and at least one character type should be selected
-    WHEN all prompts are answered
-    THEN a password is generated that matches the selected criteria
-    WHEN the password is generated
-    THEN the password is either displayed in an alert or written to the page
+Started April 7, 2022
 
 Logic Map:
 
-    1. Series of Prompts
+   Series of Prompts for Password Criteria
+        a. password length 8-128 (inclusive) characters
+        b. Confirm if includes CHAR TYPES: lowercase, uppercase, numeric, and/or special characters
+            i. could use an object
+            ii. could be separate strings
+        c. input validation for each prompt and at least one char type should be selected 
+        d. after prompts answer > password generates > in an alert or written to the page
+
+Object Sketch:
+
+let criteria = {
+    letters:,
+    numbers:,
+    special_characters:,
+}
+
+letters is initially all lowercase and use .toUpperCase and set it to variable lettersCaps
+
+i could turn all keys to variables for readability.
+
+essentially all a giant if statement function that 
+    1. window.prompt(""); user inputs a value 8-128. checks if number is between 8-128.
+        a. https://stackoverflow.com/questions/17907455/how-to-get-numeric-value-from-a-prompt-box
+        b. parseFloat(prompt()); turns string value from prompt to an integer
+    2. declare user input as a variable
+        a. i probably need a separate function for this that parseFloats, declares user input as a variable, and returns that variable value
+    3. the big function will contain the 8-128 validity?
+    4. idk where im going to put this function or if its part of the big function...
+        a. a function that concats all accepted criteria strings, randomizes it using math(), and x number of characters is returned
+    5. Needed to
