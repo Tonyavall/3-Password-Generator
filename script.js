@@ -33,8 +33,77 @@ function userInput() {
 // console.log(userInput());
 
 function generatePassword() {
+  let ifLetters = window.confirm("Would you like lowercase letters?");
+    let validationLetters = window.confirm("Are you sure?");
+      if (validationLetters = false) {
+        return;
+      }
+  let ifLettersCaps = window.confirm("Would you like uppercase letters?")
+    let validationLettersCaps = window.confirm("Are you sure?");
+      if (validationLettersCaps = false) {
+        return;
+      }
+  let ifNumbers = window.confirm("Would you like numbers?");
+    let validationNumbers = window.confirm("Are you sure?");
+      if (validationNumbers = false) {
+        return;
+      }
+  let ifSpecial = window.confirm("Would you like special characters?");
+    let validationSpecial = window.confirm("Are you sure?");
+      if (validationSpecial = false) {
+        return;
+      }
 
-}
+// Contains user chosen criteria for the obj's prop values to be manipulated later
+  let criteriaContainer = {
+
+  };
+
+// Multiple independent if statements checking user choices
+  if (ifLetters) {
+    // if character type is chosen, it will be put into the criteria container object
+    criteriaContainer.letters = letters;
+  };
+
+  if (ifLettersCaps) {
+    criteriaContainer.lettersCaps = lettersCaps;
+  };
+  
+  if (ifNumbers) {
+    criteriaContainer.numbers = numbers;
+  }
+
+  if (ifSpecial) {
+    criteriaContainer.special_characters = special_characters;
+  }
+
+// Grabbing all criteriaContainer's values and assigning it a variable
+  let criteriaContainerValues = Object.values(criteriaContainer);
+// Merging an array of arrays. https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays
+  let chosenCriteria = [].concat.apply([], criteriaContainerValues);
+// Check to see if arrays are merged
+  // console.log(chosenCriteria);
+
+  // User's input is returned as a number and assigned to userNumber
+  let userNumber = userInput();
+  let randomPassArray = [];
+
+  // For loop that keeps pushing random array values to randomPass and stops at user's character limit input
+  for (let i = 0; i < userNumber; i++)
+   // Math method randomizes index number for chosenCriteria. Essentially is chosenCriteria[Random Number]
+   // Whatever random chosenCriteria[Random Number] string value is returned is pushed into randomPass variable
+    randomPassArray.push(chosenCriteria[Math.floor((Math.random() * chosenCriteria.length) + 0)]);
+  
+  // check to see if randomPass works
+  // console.log(randomPass)
+
+  // Now we join randomPassArray together into 1 string
+  let finalPassword = randomPassArray.join('');
+
+  // check to see if final password is generated
+  // console.log(finalPassword)
+  return finalPassword;
+};
 
 // Write password to the #password input
 function writePassword() {
