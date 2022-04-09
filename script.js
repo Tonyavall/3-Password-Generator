@@ -1,7 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
 let letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 let special_characters = ["+", "-", "&", "|", "!", "(", ")", "{", "}", "[", "]", "^", "~", "*", "?", ":","\"","\\"];
@@ -33,25 +32,28 @@ function userInput() {
 // console.log(userInput());
 
 function generatePassword() {
+
+// .confirm returns true/false and is assigned to respective ifVariables
+// ifVariables are to be checked true/false in conditional statements later
   let ifLetters = window.confirm("Would you like lowercase letters?");
     let validationLetters = window.confirm("Are you sure?");
-      if (validationLetters = false) {
-        return;
+      if (!validationLetters) {
+        return "";
       }
   let ifLettersCaps = window.confirm("Would you like uppercase letters?")
     let validationLettersCaps = window.confirm("Are you sure?");
-      if (validationLettersCaps = false) {
-        return;
+      if (!validationLettersCaps) {
+        return "";
       }
   let ifNumbers = window.confirm("Would you like numbers?");
     let validationNumbers = window.confirm("Are you sure?");
-      if (validationNumbers = false) {
-        return;
+      if (!validationNumbers) {
+        return "";
       }
   let ifSpecial = window.confirm("Would you like special characters?");
     let validationSpecial = window.confirm("Are you sure?");
-      if (validationSpecial = false) {
-        return;
+      if (!validationSpecial) {
+        return "";
       }
 
 // Contains user chosen criteria for the obj's prop values to be manipulated later
