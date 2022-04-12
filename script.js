@@ -35,22 +35,22 @@ function generatePassword() {
 
 // .confirm returns true/false and is assigned to respective ifVariables
 // ifVariables are to be checked true/false in conditional statements later
-  let ifLetters = window.confirm("Would you like lowercase letters?");
+  let hasLetters = window.confirm("Would you like lowercase letters?");
     let validationLetters = window.confirm("Are you sure?");
       if (!validationLetters) {
         return "";
       }
-  let ifLettersCaps = window.confirm("Would you like uppercase letters?")
+  let hasLettersCaps = window.confirm("Would you like uppercase letters?")
     let validationLettersCaps = window.confirm("Are you sure?");
       if (!validationLettersCaps) {
         return "";
       }
-  let ifNumbers = window.confirm("Would you like numbers?");
+  let hasNumbers = window.confirm("Would you like numbers?");
     let validationNumbers = window.confirm("Are you sure?");
       if (!validationNumbers) {
         return "";
       }
-  let ifSpecial = window.confirm("Would you like special characters?");
+  let hasSpecial = window.confirm("Would you like special characters?");
     let validationSpecial = window.confirm("Are you sure?");
       if (!validationSpecial) {
         return "";
@@ -61,35 +61,37 @@ function generatePassword() {
 
   };
 
-  // If the value of ifVariables is true, the chosen criteria will be put into the criteriaContainer object
-  ifLetters && (criteriaContainer.letters = letters)
-  ifLettersCaps && (criteriaContainer.lettersCaps = lettersCaps)
-  ifNumbers && (criteriaContainer.numbers = numbers)
-  ifSpecial && (criteriaContainer.special_characters = special_characters)
+  // If the value of hasVariables is true, the chosen criteria will be put into the criteriaContainer object
+  hasLetters && (criteriaContainer.letters = letters)
+  hasLettersCaps && (criteriaContainer.lettersCaps = lettersCaps)
+  hasNumbers && (criteriaContainer.numbers = numbers)
+  hasSpecial && (criteriaContainer.special_characters = special_characters)
 
   // Code that was replaced by above
 // // Multiple independent if statements checking user choices
-//   if (ifLetters) {
+//   if (hasLetters) {
 //     // if character type is chosen, the values of character type will be put into the criteria container object
 //     criteriaContainer.letters = letters;
 //   };
 
-//   if (ifLettersCaps) {
+//   if (hasLettersCaps) {
 //     criteriaContainer.lettersCaps = lettersCaps;
 //   };
   
-//   if (ifNumbers) {
+//   if (hasNumbers) {
 //     criteriaContainer.numbers = numbers;
 //   };
 
-//   if (ifSpecial) {
+//   if (hasSpecial) {
 //     criteriaContainer.special_characters = special_characters;
 //   };
 
-// Grabbing all criteriaContainer's values and assigning it a variable
+// Grabbing all criteriaContainer's values and assigning it a variable. An array of arrays is returned.
   let criteriaContainerValues = Object.values(criteriaContainer);
 // Merging an array of arrays. https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays
   let chosenCriteria = [].concat.apply([], criteriaContainerValues);
+
+  console.log(criteriaContainerValues);
 
 // Check to see if arrays are merged
   // console.log(chosenCriteria);
