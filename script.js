@@ -61,28 +61,36 @@ function generatePassword() {
 
   };
 
-// Multiple independent if statements checking user choices
-  if (ifLetters) {
-    // if character type is chosen, it will be put into the criteria container object
-    criteriaContainer.letters = letters;
-  };
+  // If the value of ifVariables is true, the chosen criteria will be put into the criteriaContainer object
+  ifLetters && (criteriaContainer.letters = letters)
+  ifLettersCaps && (criteriaContainer.lettersCaps = lettersCaps)
+  ifNumbers && (criteriaContainer.numbers = numbers)
+  ifSpecial && (criteriaContainer.special_characters = special_characters)
 
-  if (ifLettersCaps) {
-    criteriaContainer.lettersCaps = lettersCaps;
-  };
+  // Code that was replaced by above
+// // Multiple independent if statements checking user choices
+//   if (ifLetters) {
+//     // if character type is chosen, the values of character type will be put into the criteria container object
+//     criteriaContainer.letters = letters;
+//   };
+
+//   if (ifLettersCaps) {
+//     criteriaContainer.lettersCaps = lettersCaps;
+//   };
   
-  if (ifNumbers) {
-    criteriaContainer.numbers = numbers;
-  }
+//   if (ifNumbers) {
+//     criteriaContainer.numbers = numbers;
+//   };
 
-  if (ifSpecial) {
-    criteriaContainer.special_characters = special_characters;
-  }
+//   if (ifSpecial) {
+//     criteriaContainer.special_characters = special_characters;
+//   };
 
 // Grabbing all criteriaContainer's values and assigning it a variable
   let criteriaContainerValues = Object.values(criteriaContainer);
 // Merging an array of arrays. https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays
   let chosenCriteria = [].concat.apply([], criteriaContainerValues);
+
 // Check to see if arrays are merged
   // console.log(chosenCriteria);
 
@@ -90,10 +98,10 @@ function generatePassword() {
   let userNumber = userInput();
   let randomPassArray = [];
 
-  // For loop that keeps pushing random array values to randomPass and stops at user's character limit input
+  // For loop that keeps pushing random array values from chosenCriteria to randomPassArray and stops at user's character limit input
   for (let i = 0; i < userNumber; i++)
    // Math method randomizes index number for chosenCriteria. Essentially is chosenCriteria[Random Number]
-   // Whatever random chosenCriteria[Random Number] string value is returned is pushed into randomPass variable
+   // Whatever random chosenCriteria[Random Number] string value is returned is pushed into randomPassAray variable
     randomPassArray.push(chosenCriteria[Math.floor((Math.random() * chosenCriteria.length) + 0)]);
   
   // check to see if randomPass works
