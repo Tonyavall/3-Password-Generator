@@ -33,8 +33,8 @@ function userInput() {
 
 function generatePassword() {
 
-// .confirm returns true/false and is assigned to respective ifVariables
-// ifVariables are to be checked true/false in conditional statements later
+// .confirm returns true/false and is assigned to respective hasVariables
+// hasVariables are to be checked true/false in conditional statements later
   let hasLetters = window.confirm("Would you like lowercase letters?");
     let validationLetters = window.confirm("Are you sure?");
       if (!validationLetters) {
@@ -61,8 +61,9 @@ function generatePassword() {
 
   };
 
-  // If the value of hasVariables is true, the chosen criteria will be put into the criteriaContainer object
+// If the value of hasVariables is true, the chosen criteria will be put into the criteriaContainer object
   hasLetters && (criteriaContainer.letters = letters)
+
   hasLettersCaps && (criteriaContainer.lettersCaps = lettersCaps)
   hasNumbers && (criteriaContainer.numbers = numbers)
   hasSpecial && (criteriaContainer.special_characters = special_characters)
@@ -86,13 +87,19 @@ function generatePassword() {
 //     criteriaContainer.special_characters = special_characters;
 //   };
 
-// Grabbing all criteriaContainer's values and assigning it a variable. An array of arrays is returned.
-  let criteriaContainerValues = Object.values(criteriaContainer);
-// Merging an array of arrays. https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays
-  let chosenCriteria = [].concat.apply([], criteriaContainerValues);
+// Using jquery .map to traverse through criteriaContainer object's values and return those values into 1 array.
+  let chosenCriteria = $.map(criteriaContainer, function(value, key) {
+    return value;
+  });
+
+  // Code that was replaced by above.
+// // Grabbing all criteriaContainer's values and assigning it a variable. An array of arrays is returned.
+//   let criteriaContainerValues = Object.values(criteriaContainer);
+// // Merging an array of arrays. https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays
+//   let chosenCriteria = [].concat.apply([], criteriaContainerValues);
 
   // Check to see if arrays are merged
-  // console.log(chosenCriteria);
+  console.log(chosenCriteria);
 
   // User's input is returned as a number and assigned to userNumber
   let userNumber = userInput();
