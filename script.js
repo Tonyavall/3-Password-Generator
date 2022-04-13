@@ -91,9 +91,7 @@ function generatePassword() {
 // Merging an array of arrays. https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays
   let chosenCriteria = [].concat.apply([], criteriaContainerValues);
 
-  console.log(criteriaContainerValues);
-
-// Check to see if arrays are merged
+  // Check to see if arrays are merged
   // console.log(chosenCriteria);
 
   // User's input is returned as a number and assigned to userNumber
@@ -128,4 +126,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
