@@ -87,7 +87,7 @@ function generatePassword() {
 //     criteriaContainer.special_characters = special_characters;
 //   };
 
-// Using jquery .map to traverse through criteriaContainer object's values and return those values into 1 array.
+// Using jquery .map to traverse through criteriaContainer object's values and return those values into 1 flattened array.
   let chosenCriteria = $.map(criteriaContainer, function(value, key) {
     return value;
   });
