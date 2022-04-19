@@ -15,18 +15,11 @@ b. Confirm if includes CHAR TYPES: lowercase, uppercase, numeric, and/or special
     d. after prompts answer > password generates > in an alert or written to the page
 
 Object Sketch:
+let criteria = { letters:, numbers:, special_characters:, };
 
-let criteria = {
-    letters:,
-    numbers:,
-    special_characters:,
-}
+Letters is initially all lowercase and use .toUpperCase and set it to variable lettersCaps. I could turn all keys to variables for readability.
 
-letters is initially all lowercase and use .toUpperCase and set it to variable lettersCaps
-
-I could turn all keys to variables for readability.
-
-essentially all a giant if statement function that 
+Essentially all a giant if statement function that 
 1. window.prompt(""); user inputs a value 8-128. checks if number is between 8-128.
     a. https://stackoverflow.com/questions/17907455/how-to-get-numeric-value-from-a-prompt-box
      b. parseFloat(prompt()); turns string value from prompt to an integer
